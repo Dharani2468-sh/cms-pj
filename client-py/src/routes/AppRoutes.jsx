@@ -1,10 +1,11 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "../pages/Home";
-
+import Developer from "../pages/Developer";
 import SignUp from "../pages/SignUp";
 import NotFound from "../pages/NotFound";
 import BasicLayouts from "../layouts/BasicLayout";
 import Login from "../pages/Login";
+import About from "../pages/About";
 
 export default function AppRoutes() {
   return (
@@ -14,6 +15,8 @@ export default function AppRoutes() {
         <Route path="/home" element={<Home />} />
         <Route path="/login" element={<Login></Login>} />
         <Route path="/sign-up" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/developer" element={<Developer />} />
       </Route>
       
       <Route path="*" element={<NotFound />} />
