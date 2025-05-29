@@ -3,13 +3,13 @@ import { Link, Outlet } from "react-router";
 function BasicLayouts() {
     return (
         <>
-            <header className="bg-pink-400 px-6 py-8 flex justify-between items-center">
+            <header style={{ backgroundColor: '#2B124C' }} className="px-6 py-8 flex justify-between items-center">
                 <div className="flex items-center gap-2">
-                  <img
+                  <Link to={'/home'}><img
                     src="https://static.vecteezy.com/system/resources/previews/055/299/327/non_2x/white-paw-print-on-white-background-on-transparent-background-png.png"
                     alt="Logo"
                     className="w-12 h-12"
-                  />
+                  /></Link>
                   <h1 className="text-white text-xl font-bold">The Pet Nest</h1>
                 </div>
                 <div className="mt-3 sm:mt-0 flex gap-3">
