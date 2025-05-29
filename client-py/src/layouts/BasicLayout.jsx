@@ -16,6 +16,10 @@ function BasicLayouts() {
                     <div className="bg-white text-black px-4 py-2 rounded  cursor-pointer">
                         <Link to={'/sign-up'}>sign-up</Link>
                     </div>
+                    <div className="bg-white text-black px-4 py-2 rounded  cursor-pointer">
+                        <Link to={'/about'}>about</Link>
+                    </div>
+
                 </div>
             </header>
             <main className="">
