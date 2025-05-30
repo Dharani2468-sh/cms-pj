@@ -44,6 +44,30 @@ function BasicLayouts() {
           >
             Developer
           </Link>
+          <Link
+            to={"/DogList"}
+            className="bg-white border-2 text-black px-4 py-2 rounded cursor-pointer"
+          >
+            DogList
+          </Link>
+          <Link
+            to={"/BirdList"}
+            className="bg-white border-2 text-black px-4 py-2 rounded cursor-pointer"
+          >
+            bird
+          </Link>
+          <Link
+            to={"/CatList"}
+            className="bg-white border-2 text-black px-4 py-2 rounded cursor-pointer"
+          >
+            cat
+          </Link>
+          <Link
+            to={"/RabbitList"}
+            className="bg-white border-2 text-black px-4 py-2 rounded cursor-pointer"
+          >
+            rabbit
+          </Link>
         </div>
       </header>
 

@@ -1,5 +1,6 @@
 import { useContext, useState } from 'react';
 import AuthContext from '../context/AuthContext';
+import Swal from 'sweetalert2';
 
 export default function SignUp() {
 	const [email, setEmail] = useState('');
@@ -9,6 +10,9 @@ export default function SignUp() {
 	function handleSubmit(event) {
 		event.preventDefault();
 		register(email, password);
+		Swal.fire("Success", "Account created successfully!", "success");
+		setEmail('');
+		setPassword('');
 	}
 
 	return (
@@ -27,7 +31,6 @@ export default function SignUp() {
 					<input
 						id="email"
 						type="email"
-						name="username"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
@@ -36,16 +39,12 @@ export default function SignUp() {
 					/>
 				</div>
 				<div className="mb-8">
-					<label
-						htmlFor="password"
-						className="block text-sm font-medium text-gray-700 mb-2"
-					>
+					<label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
 						Password
 					</label>
 					<input
 						id="password"
 						type="password"
-						name="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
