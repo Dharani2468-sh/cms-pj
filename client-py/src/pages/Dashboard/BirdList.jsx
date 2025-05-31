@@ -1,77 +1,86 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const birds = [
-  { id: 201, name: 'Kiwi', age: 1 },
-  { id: 202, name: 'Polly', age: 3 },
-  { id: 203, name: 'Sky', age: 2 },
-  { id: 204, name: 'Sunny', age: 4 },
-  { id: 205, name: 'Buddy', age: 1 },
-  { id: 206, name: 'Angel', age: 3 },
-  { id: 207, name: 'Coco', age: 2 },
-  { id: 208, name: 'Jazz', age: 5 },
-  { id: 209, name: 'Mango', age: 2 },
-  { id: 210, name: 'Pepper', age: 4 },
-  { id: 211, name: 'Rio', age: 1 },
-  { id: 212, name: 'Blue', age: 3 },
-  { id: 213, name: 'Lola', age: 2 },
-  { id: 214, name: 'Zephyr', age: 5 },
-  { id: 215, name: 'Bella', age: 3 },
-  { id: 216, name: 'Echo', age: 4 },
-  { id: 217, name: 'Zazu', age: 2 },
-  { id: 218, name: 'Skye', age: 1 },
-  { id: 219, name: 'Rio', age: 3 },
-  { id: 220, name: 'Juno', age: 2 },
+const birdNames = [
+  "Tweety",
+  "Coco",
+  "Kiwi",
+  "Sunny",
+  "Buddy",
+  "Skittles",
+  "Peaches",
+  "Rio",
+  "Pip",
+  "Jasper",
+  "Mango",
+  "Sky",
+  "Angel",
+  "Bingo",
+  "Peanut",
+  "Zazu",
+  "Tiki",
+  "Chirpy",
+  "Jazz",
+  "Bluebell"
 ];
 
+// Static images of domestic birds
 const birdImages = [
-  "https://upload.wikimedia.org/wikipedia/commons/3/32/House_sparrow04.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/6/6b/Ara_ararauna_Luc_Viatour.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/9/92/Bald_Eagle_Portrait.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/4/45/Peacock_Plumage.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/56/Owl_eyes.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/4/4d/Indian_Roller_%28Coracias_benghalensis%29_in_Hyderabad_W_IMG_8615.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/6/6e/Hummingbird_in_flight.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/d/dc/Flamingo_Lake_Bogoria_Kenya_Luca_Galuzzi_2004.JPG",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a1/Red-Lored_Parrot.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/7f/Blackbird_male.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/2/2e/Blue_Tit_-_parus_caeruleus.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/3/3e/American_robin.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/5/5f/Puffin_with_fish.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/f/f3/Rainbow_Lorikeet_2_-_Christopher_Watson.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/c/cb/Indian_peacock_Pavo_cristatus.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/d/da/Greater_Coucal_%28Centropus_sinensis%29.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/0/04/Kingfisher_bird.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/1/12/White_Stork_Ciconia_ciconia.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/a/a0/Swallow_bird.jpg",
-  "https://upload.wikimedia.org/wikipedia/commons/7/7d/Common_Kingfisher_Alcedo_atthis.jpg",
+  "https://cdn.pixabay.com/photo/2017/08/02/21/24/budgerigar-2579967_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/01/20/15/07/cockatiel-604675_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/01/31/21/11/canary-2026842_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/02/01/22/02/cockatiel-2036811_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/01/31/21/07/parakeet-2026840_1280.jpg",
+  "https://cdn.pixabay.com/photo/2018/03/27/16/57/parrot-3264491_1280.jpg",
+  "https://cdn.pixabay.com/photo/2019/01/11/18/14/parrot-3927300_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/09/02/12/18/parakeet-918198_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/06/23/22/00/cockatiel-2434303_1280.jpg",
+  "https://cdn.pixabay.com/photo/2019/10/03/16/20/parakeet-4521483_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/05/08/14/32/parrot-757152_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/05/08/14/30/parrot-757143_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/05/10/22/05/bird-2307068_1280.jpg",
+  "https://cdn.pixabay.com/photo/2015/09/18/18/26/parrot-950277_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/04/28/22/25/parrot-2265342_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/06/05/00/41/parrot-2373750_1280.jpg",
+  "https://cdn.pixabay.com/photo/2017/01/23/15/16/budgerigar-2002652_1280.jpg",
+  "https://cdn.pixabay.com/photo/2019/09/14/21/54/bird-4473037_1280.jpg",
+  "https://cdn.pixabay.com/photo/2016/07/19/15/37/bird-1524795_1280.jpg",
+  "https://cdn.pixabay.com/photo/2016/05/15/16/38/bird-1392375_1280.jpg",
 ];
+
+// Placeholder image if original fails
+const placeholderImg = "https://via.placeholder.com/400x300?text=No+Image";
 
 export default function BirdList() {
-  function handleAdopt(birdName) {
-    alert(`You adopted ${birdName}! 🐦`);
+  const [birds] = useState(birdImages);
+
+  // Handler for broken images - swap src to placeholder
+  function handleImageError(event) {
+    event.target.src = placeholderImg;
+  }
+
+  function handleAdopt(index) {
+    alert(`You adopted ${birdNames[index] || `Bird #${index + 1}`}! 🦜🎉`);
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-100 py-10 px-4">
-      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">
-        Available Birds for Adoption
-      </h1>
+    <div className="min-h-screen bg-gradient-to-br from-green-100 via-white to-yellow-100 py-10 px-4">
+      <h1 className="text-4xl font-bold text-center text-gray-800 mb-10">Available Domestic Birds for Adoption</h1>
       <div className="grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {birds.map((bird, index) => (
+        {birds.map((url, index) => (
           <div
-            key={bird.id}
+            key={index}
             className="bg-white rounded-2xl shadow-xl p-6 flex flex-col items-center border border-gray-200"
           >
             <img
-              src={birdImages[index % birdImages.length]}
-              alt={bird.name}
+              src={url}
+              alt={birdNames[index] || "Bird"}
+              onError={handleImageError}
               className="rounded-lg mb-4 w-full object-cover h-48"
             />
-            <h2 className="text-xl font-bold text-gray-700">{bird.name}</h2>
-            <p className="text-gray-500 mb-4">Age: {bird.age} years</p>
+            <h2 className="text-xl font-bold text-gray-700">{birdNames[index] || `Bird #${index + 1}`}</h2>
             <button
-              onClick={() => handleAdopt(bird.name)}
-              className="bg-gradient-to-r from-cyan-400 to-blue-600 text-white py-2 px-4 rounded-full hover:from-cyan-500 hover:to-blue-700 transition-all font-semibold shadow-md"
+              onClick={() => handleAdopt(index)}
+              className="bg-gradient-to-r from-green-400 to-green-600 text-white py-2 px-4 rounded-full hover:from-green-500 hover:to-green-700 transition-all font-semibold shadow-md"
             >
               Adopt Pet
             </button>
