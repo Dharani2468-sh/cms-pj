@@ -16,16 +16,22 @@ export default function SignUp() {
 	}
 
 	return (
-		<div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-purple-100">
+		<div
+			className="flex items-center justify-center min-h-screen bg-cover bg-center"
+			style={{
+				backgroundImage:
+					"url('https://64.media.tumblr.com/452592e0d903a39bda20545721af55aa/tumblr_ofpuerFeWZ1vggiabo1_1280.gif')",
+			}}
+		>
 			<form
 				onSubmit={handleSubmit}
-				className="bg-white/90 p-10 rounded-2xl shadow-2xl w-full max-w-md border border-gray-200"
+				className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl w-full max-w-md border border-white/20"
 			>
-				<h2 className="text-3xl font-extrabold mb-8 text-center text-blue-700 tracking-tight">
+				<h2 className="text-3xl font-extrabold mb-8 text-center text-white tracking-tight">
 					Create Your Account
 				</h2>
 				<div className="mb-6">
-					<label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+					<label htmlFor="email" className="block text-sm font-medium text-white mb-2">
 						Email Address
 					</label>
 					<input
@@ -34,12 +40,12 @@ export default function SignUp() {
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
 						required
-						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
+						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 text-black"
 						placeholder="you@example.com"
 					/>
 				</div>
 				<div className="mb-8">
-					<label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+					<label htmlFor="password" className="block text-sm font-medium text-white mb-2">
 						Password
 					</label>
 					<input
@@ -48,7 +54,7 @@ export default function SignUp() {
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
 						required
-						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-gray-50"
+						className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white/80 text-black"
 						placeholder="••••••••"
 					/>
 				</div>
@@ -58,9 +64,9 @@ export default function SignUp() {
 				>
 					Create New Account
 				</button>
-				<div className="mt-6 text-center text-sm text-gray-500">
+				<div className="mt-6 text-center text-sm text-white">
 					Already have an account?{' '}
-					<a href="/login" className="text-blue-600 hover:underline">
+					<a href="/login" className="text-blue-300 hover:underline">
 						Sign in
 					</a>
 				</div>
