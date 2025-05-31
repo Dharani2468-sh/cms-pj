@@ -6,17 +6,23 @@ export default function Login() {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const { login } = useContext(AuthContext);
-	const navigate = useNavigate(); // 👈 Add this
+	const navigate = useNavigate();
 
 	function handleSubmit(event) {
 		event.preventDefault();
 		login(email, password);
-		navigate('/dashboard/intro'); // 👈 Navigate after login
+		navigate('/dashboard/intro');
 	}
 
 	return (
-		<div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 via-white to-blue-200">
-			<div className="bg-white/90 p-10 rounded-2xl shadow-2xl w-full max-w-md border border-blue-100">
+		<div
+			className="flex items-center justify-center min-h-screen bg-cover bg-center"
+			style={{
+				backgroundImage:
+					"url('https://64.media.tumblr.com/452592e0d903a39bda20545721af55aa/tumblr_ofpuerFeWZ1vggiabo1_1280.gif')",
+			}}
+		>
+			<div className="bg-white/10 backdrop-blur-md p-10 rounded-2xl shadow-2xl w-full max-w-md border border-white/20">
 				<form onSubmit={handleSubmit} className="space-y-6">
 					<div className="flex flex-col items-center mb-6">
 						<div className="bg-blue-500 rounded-full p-3 mb-2 shadow-lg">
@@ -34,13 +40,13 @@ export default function Login() {
 								/>
 							</svg>
 						</div>
-						<h2 className="text-3xl font-extrabold text-blue-700">Sign In</h2>
-						<p className="text-gray-500 mt-1 text-sm">
+						<h2 className="text-3xl font-extrabold text-white">Sign In</h2>
+						<p className="text-gray-200 mt-1 text-sm">
 							Welcome back! Please login to your account.
 						</p>
 					</div>
 					<div>
-						<label htmlFor="email" className="block text-gray-700 font-semibold mb-1">
+						<label htmlFor="email" className="block text-white font-semibold mb-1">
 							Email
 						</label>
 						<input
@@ -50,16 +56,13 @@ export default function Login() {
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							required
-							className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+							className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-white/80 text-black"
 							placeholder="Enter your email"
 							autoComplete="username"
 						/>
 					</div>
 					<div>
-						<label
-							htmlFor="password"
-							className="block text-gray-700 font-semibold mb-1"
-						>
+						<label htmlFor="password" className="block text-white font-semibold mb-1">
 							Password
 						</label>
 						<input
@@ -69,7 +72,7 @@ export default function Login() {
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							required
-							className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+							className="w-full px-4 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition bg-white/80 text-black"
 							placeholder="Enter your password"
 							autoComplete="current-password"
 						/>
@@ -80,9 +83,9 @@ export default function Login() {
 					>
 						Login
 					</button>
-					<div className="text-center text-sm text-gray-500 mt-4">
+					<div className="text-center text-sm text-gray-200 mt-4">
 						Don't have an account?{' '}
-						<Link to="/sign-up" className="text-blue-600 hover:underline">
+						<Link to="/sign-up" className="text-white underline hover:text-blue-300">
 							Sign up
 						</Link>
 					</div>
