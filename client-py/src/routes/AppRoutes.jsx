@@ -11,6 +11,7 @@ import BirdList from "../pages/Dashboard/BirdList";
 import CatList from "../pages/Dashboard/CatList";
 import RabbitList from "../pages/Dashboard/RabbitList";
 import DashboardLayout from '../layouts/DashboardLayout';
+import Intro from "../pages/Dashboard/Intro";
 export default function AppRoutes() {
   return (
     <Routes>
@@ -24,6 +25,7 @@ export default function AppRoutes() {
        </Route>
     
        <Route path="/" element={<DashboardLayout />}>
+            <Route path="/Intro" element={<Intro />} />
             <Route path="/DogList" element={<DogList />} />
             <Route path="/BirdList" element={<BirdList />} />
             <Route path="/CatList" element={<CatList />} />
