@@ -45,10 +45,10 @@ function BasicLayouts() {
             Developer
           </Link>
           <Link
-            to={"/DogList"}
+            to={"/Intro"}
             className="bg-white border-2 text-black px-4 py-2 rounded cursor-pointer"
           >
-            DogList
+            Intro
           </Link>
           <Link
             to={"/BirdList"}
