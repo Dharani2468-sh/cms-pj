@@ -2,7 +2,10 @@ import React from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 const DOG_PATHS = [
-  { path: '/dashboard/dogs', text: '🐶 Dog List' },
+  { path: '/DogList', text: '🐶 Dog ' },
+  { path: '/BirdList', text: '🐣 Bird ' },
+  { path: '/CatList', text: '🐶 Cat List' },
+  { path: '/RabbitList', text: '🐶 Rabbit List' },
   { path: '/dashboard/adopted', text: '❤️ Adopted Pets' },
 ];
 

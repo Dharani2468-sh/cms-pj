@@ -10,25 +10,24 @@ import DogList from "../pages/Dashboard/DogList";
 import BirdList from "../pages/Dashboard/BirdList";
 import CatList from "../pages/Dashboard/CatList";
 import RabbitList from "../pages/Dashboard/RabbitList";
+import DashboardLayout from '../layouts/DashboardLayout';
 export default function AppRoutes() {
   return (
     <Routes>
         <Route path="/" element={<BasicLayouts />}>
-        <Route index element={<Home />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login></Login>} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/developer" element={<Developer />} />
-      </Route>
-      
-      <Route
-
-			>
-        <Route path="/DogList" element={<DogList />} />
-        <Route path="/BirdList" element={<BirdList />} />
-        <Route path="/CatList" element={<CatList />} />
-        <Route path="/RabbitList" element={<RabbitList />} />
+            <Route index element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login></Login>} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/developer" element={<Developer />} />
+       </Route>
+    
+       <Route path="/" element={<DashboardLayout />}>
+            <Route path="/DogList" element={<DogList />} />
+            <Route path="/BirdList" element={<BirdList />} />
+            <Route path="/CatList" element={<CatList />} />
+            <Route path="/RabbitList" element={<RabbitList />} />
       </Route>
 
 
